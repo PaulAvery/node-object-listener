@@ -1,0 +1,42 @@
+{
+  "name": "object-listener",
+  "version": "0.0.0",
+  "main": "lib/ObjectListener.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulAvery/node-object-listener.git"
+  },
+  "devDependencies": {
+    "eslint": "^0.18.0",
+    "mocha": "^2.2.5",
+    "must": "^0.12.0",
+    "sinon": "^1.14.1",
+    "typescript": "^1.5.0-beta",
+    "version-bump": "^0.1.0"
+  },
+  "scripts": {
+    "test": "make test",
+    "prepublish": "make test"
+  },
+  "author": "Florian Albertz",
+  "license": "BSD-3-Clause",
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "curly": [
+        2,
+        "multi-line"
+      ],
+      "quotes": [
+        2,
+        "single"
+      ]
+    },
+    "ecmaFeatures": {
+      "modules": true
+    }
+  }
+}

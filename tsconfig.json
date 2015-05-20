@@ -1,0 +1,30 @@
+{
+    "version": "1.5.0-beta",
+    "compilerOptions": {
+        "target": "es5",
+        "outDir": "lib",
+        "module": "commonjs",
+        "declaration": false,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true
+    },
+    "filesGlob": [
+        "./src/**/*.ts",
+        "./defs/**/*.d.ts",
+        "!./node_modules/**/*.ts"
+    ],
+    "files": [
+        "./src/ObjectListener.ts",
+        "./src/clone.ts",
+        "./src/equal.ts",
+        "./defs/lib.es6.iterator.d.ts",
+        "./defs/lib.es6.map.d.ts",
+        "./defs/lib.es6.set.d.ts",
+        "./defs/lib.es6.symbol.d.ts",
+        "./defs/lib.es6.weakmap.d.ts",
+        "./defs/node.d.ts"
+    ]
+}
