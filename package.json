@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "make test",
-    "prepublish": "make test"
+    "prepublish": "make"
   },
   "author": "Florian Albertz",
   "license": "BSD-3-Clause",
