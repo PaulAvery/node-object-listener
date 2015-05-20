@@ -39,7 +39,8 @@ config.update(JSON.parse(json));
 colors.child('bg').update('#000000');
 colors.child('fg').update('#ffffff');
 
-//Now, the changes have been written and changeFGColor has been called with the new value!
+//Now, the changes have been written and
+//changeFGColor has been called with the new value!
 ```
 
 ## Listener
