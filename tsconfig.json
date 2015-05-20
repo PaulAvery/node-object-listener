@@ -20,6 +20,7 @@
         "./src/ObjectListener.ts",
         "./src/clone.ts",
         "./src/equal.ts",
+        "./defs/dataview.d.ts",
         "./defs/lib.es6.iterator.d.ts",
         "./defs/lib.es6.map.d.ts",
         "./defs/lib.es6.set.d.ts",
