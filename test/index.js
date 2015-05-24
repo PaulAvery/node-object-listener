@@ -105,9 +105,19 @@ describe('A Listener object', function() {
 			listener.child('prop.prop3').child('<prop2').must.be(listener.child('prop.prop2'));
 		});
 
-		it('is populated on instantiation', function() {
+		it('are populated on instantiation', function() {
 			listener.update({firstProp: 0});
 			listener.child('firstProp').data.must.be(0);
+		});
+
+		describe('are the main listener if path is', function() {
+			it('an empty string', function() {
+				listener.child('').must.be(listener);
+			});
+
+			it('is not provided', function() {
+				listener.child().must.be(listener);
+			});
 		});
 
 		it('can delete property', function() {

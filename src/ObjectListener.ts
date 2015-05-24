@@ -75,7 +75,9 @@ class Listener extends EventEmitter {
 	}
 
 	//Create a child instance. Basically watch a part of the main object. Pass a path like 'some.path.to.property'
-	child(path: string): Listener {
+	child(path?: string): Listener {
+		if(!path) return this;
+
 		if(path[0] === '<') {
 			//We want to access the parent, so fetch the child from the parent
 			return this.parent.child(path.substr(1));
