@@ -32,6 +32,25 @@ describe('A Listener object', function() {
 		spy.reset();
 	});
 
+	describe('has a .data property, which', function() {
+		it('is readonly', function() {
+			var access = function() {
+				listener.data = null;
+			};
+
+			access.must.throw();
+		});
+
+		it('Returns a fresh clone each time', function() {
+			listener.update({some: 'data'});
+
+			listener.data.must.eql({some: 'data'});
+			listener.data.some = 'other';
+
+			listener.data.must.eql({some: 'data'});
+		});
+	});
+
 	describe('emits a change event', function() {
 		Object.keys(data).map(function(fr) {
 			Object.keys(data).map(function(to) {
@@ -86,6 +105,27 @@ describe('A Listener object', function() {
 			listener.child('prop.prop3').child('<prop2').must.be(listener.child('prop.prop2'));
 		});
 
+		it('is populated on instantiation', function() {
+			listener.update({firstProp: 0});
+			listener.child('firstProp').data.must.be(0);
+		});
+
+		it('can delete property', function() {
+			listener.update({prop: 0});
+			listener.on('change', spy);
+			child.on('change', spy);
+
+			child.update();
+			spy.calledTwice.must.be.true();
+			spy.firstCall.calledWith({}).must.be.true();
+			spy.secondCall.calledWith(undefined).must.be.true();
+		});
+
+		it('cannot back-propagate if parent is not an object', function() {
+			child.update.bind(child).must.throw();
+		});
+
+
 		describe('emit a change event', function() {
 			Object.keys(data).map(function(fr) {
 				Object.keys(data).map(function(to) {
@@ -114,10 +154,6 @@ describe('A Listener object', function() {
 					spy.called.must.be.false();
 				});
 			});
-		});
-
-		it('cannot back-propagate if parent is not an object', function() {
-			child.update.bind(child).must.throw();
 		});
 
 		describe('can back-propagate data', function() {

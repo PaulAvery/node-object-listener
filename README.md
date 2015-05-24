@@ -61,6 +61,7 @@ listener.update({some: 'object'});
 
 If this method is called on a child listener, the change will first be propagated upwards to the root Listener. This listener will then be updated.
 This allows you to easily update parts of your main object.
+If called without an argument, it will delete its parents property.
 
 **Example**
 ```js
@@ -93,6 +94,9 @@ var child2 = child1.child('<<other.property');
 //child1 now listens in on the roots `some.property.chain` property,
 //child2 listens in on changes to the roots `some.other.property`
 ```
+
+### .data
+The listeners current data. This uses a getter function to return a clone of the current data. Therefore, accessing this property is slightly costly. But you may modify the returned data without any problems, and be sure you dont mess up the internal state of the listener.
 
 ### Listener.defer(path: string)
 Static utility method, allows you to define a path before you received a listener to create a child from.
