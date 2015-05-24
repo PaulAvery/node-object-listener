@@ -1,6 +1,6 @@
 {
   "name": "object-listener",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "lib/ObjectListener.js",
   "description": "A diffing object watcher/listener",
   "repository": {
