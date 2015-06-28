@@ -2,6 +2,7 @@ BIN = ./node_modules/.bin
 
 build:
 	@$(BIN)/tsc
+	@$(BIN)/dts-generator --name object-listener --main object-listener/ObjectListener --out lib/object-listener.d.ts --baseDir src ObjectListener.ts
 
 clean:
 	@rm -rf lib
